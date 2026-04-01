@@ -339,9 +339,80 @@ def show_radar_chart():
 
 def main():
     """主函数"""
-    # 检查是否有用户配置
-    user_config = get_cached_user_config()
+    # 初始化session_state
+    if 'regenerate_plan' not in st.session_state:
+        st.session_state.regenerate_plan = False
     
+    # 添加侧边栏
+    with st.sidebar:
+        st.title("⚙️ 设置")
+        st.markdown("---")
+        
+        # 显示当前用户信息
+        user_config = get_cached_user_config()
+        if user_config:
+            st.subheader("当前配置")
+            st.write(f"**目标分数**: {user_config['target_score']}")
+            st.write(f"**当前水平**: {user_config['current_level']}")
+            st.write(f"**每日时间**: {user_config['daily_hours']}小时")
+            st.write(f"**词汇工具**: {user_config['vocab_tool']}")
+            
+            st.markdown("---")
+            
+            # 重新生成计划按钮
+            st.subheader("计划管理")
+            
+            col1, col2 = st.columns(2)
+            with col1:
+                if st.button("🔄 重新生成计划", type="secondary", use_container_width=True):
+                    st.session_state.regenerate_plan = True
+            
+            if st.session_state.get('regenerate_plan', False):
+                st.warning("⚠️ 重新生成计划将覆盖现有的学习计划和打卡记录！")
+                
+                col1, col2 = st.columns(2)
+                with col1:
+                    if st.button("✅ 确认重新生成", type="primary"):
+                        with st.spinner("正在生成智能学习计划..."):
+                            db.generate_initial_plan(weeks=12)
+                            # 清除缓存
+                            st.cache_data.clear()
+                            st.cache_resource.clear()
+                            st.session_state.regenerate_plan = False
+                            st.success("✅ 智能学习计划已重新生成！")
+                            st.rerun()
+                with col2:
+                    if st.button("❌ 取消", type="secondary"):
+                        st.session_state.regenerate_plan = False
+                        st.rerun()
+            
+            st.markdown("---")
+            
+            # 学习策略说明
+            st.subheader("📊 你的学习策略")
+            if user_config['current_level'] == '四级440+':
+                st.info("""
+                **四级440+ → 雅思7.5 学习策略**:
+                
+                1. **基础阶段** (1-4周): 词汇语法巩固
+                2. **提升阶段** (5-8周): 题型技巧训练  
+                3. **冲刺阶段** (9-12周): 模考和弱点突破
+                
+                **每日重点**: 听说读写交替训练，避免疲劳
+                """)
+            elif user_config['current_level'] == '六级425+':
+                st.info("""
+                **六级425+ → 雅思7.5 学习策略**:
+                
+                1. **适应阶段**: 熟悉雅思题型特点
+                2. **强化阶段**: 提升答题速度和准确性
+                3. **冲刺阶段**: 高分技巧和时间管理
+                """)
+        
+        st.markdown("---")
+        st.caption("💡 提示：点击上方按钮可重新生成更科学的学习计划")
+    
+    # 检查是否有用户配置
     if not user_config:
         init_user_config()
     else:
