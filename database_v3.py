@@ -183,16 +183,39 @@ class IELTSCoachDBV3:
     def _get_theme_description(self, theme: str, week: int) -> str:
         """获取主题描述"""
         descriptions = {
-            "教育学习": f"第{week}周：探索教育体系、学习方法、校园生活，掌握教育类话题的高频词汇和表达。",
-            "科技发展": f"第{week}周：讨论人工智能、数字技术、科技创新，学习科技类学术词汇和论述技巧。",
-            "环境保护": f"第{week}周：关注气候变化、可持续发展、生态保护，掌握环境话题的论证方法。",
-            "文化艺术": f"第{week}周：深入艺术、设计、文化传统，学习如何描述和分析文化艺术现象。",
-            "人工智能": f"第{week}周：聚焦AI技术、机器学习、智能应用，掌握前沿科技话题的英语表达。",
-            "美食旅游": f"第{week}周：结合美食文化和旅行体验，学习描述感受和体验的生动表达。",
-            "健康生活": f"第{week}周：探讨健康习惯、运动健身、心理健康，掌握健康话题的实用词汇。",
-            "设计思维": f"第{week}周：学习设计理念、创意过程、问题解决，提升描述抽象概念的能力。"
+            # 科技主题
+            "人工智能": f"第{week}周：学习AI技术、机器学习相关英语，掌握科技前沿话题的词汇和表达方式。",
+            "数字生活": f"第{week}周：探讨数字化生活方式，学习描述科技如何改变日常生活的英语表达。",
+            "科技创新": f"第{week}周：研究技术创新过程，掌握描述发明创造、技术突破的专业词汇。",
+            "未来科技": f"第{week}周：展望科技发展趋势，学习讨论未来可能性的英语表达方式。",
+            
+            # 美食主题
+            "饮食文化": f"第{week}周：探索不同饮食文化，学习描述食物、烹饪传统和文化差异的英语。",
+            "健康饮食": f"第{week}周：研究营养学知识，掌握讨论健康饮食习惯的科学英语表达。",
+            "美食旅游": f"第{week}周：结合美食与旅行体验，学习描述味觉感受和旅行见闻的生动英语。",
+            "烹饪艺术": f"第{week}周：探讨烹饪技巧和美食艺术，学习描述烹饪过程和美食评价的专业词汇。",
+            
+            # 旅行主题
+            "旅游体验": f"第{week}周：学习描述旅行经历、景点评价和文化体验的实用英语表达。",
+            "文化遗产": f"第{week}周：探索世界文化遗产，掌握讨论历史保护和传统传承的英语词汇。",
+            "冒险旅行": f"第{week}周：研究冒险旅行经历，学习描述挑战、探险和户外活动的英语表达。",
+            "城市探索": f"第{week}周：探讨城市生活和文化，掌握描述都市环境和社会现象的英语词汇。",
+            
+            # 艺术主题
+            "视觉艺术": f"第{week}周：学习绘画、雕塑等视觉艺术的英语表达，掌握艺术评论的专业词汇。",
+            "设计思维": f"第{week}周：研究设计理念和创新过程，学习描述创意解决方案的英语表达。",
+            "创意表达": f"第{week}周：探讨创意过程和艺术表达，掌握讨论创造力和想象力的英语词汇。",
+            "艺术史": f"第{week}周：学习艺术发展历史，掌握讨论艺术流派和艺术家的专业英语。",
+            
+            # 雅思常考主题
+            "教育学习": f"第{week}周：探讨教育体系和学习方法，掌握教育类雅思高频话题的英语表达。",
+            "环境保护": f"第{week}周：研究环境问题和可持续发展，掌握环保话题的雅思必备词汇。",
+            "健康生活": f"第{week}周：探讨健康生活方式，学习描述健康习惯和心理健康的英语表达。",
+            "社会发展": f"第{week}周：研究社会进步和人类发展，掌握讨论社会问题的学术英语。",
+            "经济发展": f"第{week}周：探讨经济增长和商业发展，学习经济类话题的专业英语词汇。",
+            "全球化": f"第{week}周：研究全球化影响，掌握讨论国际关系和跨文化交流的英语表达。"
         }
-        return descriptions.get(theme, f"第{week}周主题：{theme}，围绕该主题进行全方位英语学习。")
+        return descriptions.get(theme, f"第{week}周主题：{theme}，围绕该主题进行雅思备考相关的全方位英语学习。")
     
     def _get_focus_skills_for_week(self, week: int) -> str:
         """根据周数确定重点技能"""
@@ -282,28 +305,124 @@ class IELTSCoachDBV3:
             ]
         }
         
-        # 资源库（按主题分类）
+        # 精准主题资源库 - 每个主题都有专门的学习资料
         theme_resources = {
+            # 科技类主题
+            "人工智能": {
+                'vocabulary': 'https://www.englishclub.com/vocabulary/technology-artificial-intelligence.htm',
+                'listening': 'https://www.ted.com/talks/kevin_kelly_how_ai_can_bring_on_a_second_industrial_revolution',
+                'integrated': 'https://ieltsliz.com/artificial-intelligence-essay-topics/'
+            },
+            "数字生活": {
+                'vocabulary': 'https://www.englishclub.com/vocabulary/digital-life.htm',
+                'listening': 'https://www.youtube.com/watch?v=5MgBikgcWnY',  # Digital Life TED Talk
+                'integrated': 'https://www.ieltsadvantage.com/digital-technology-essay/'
+            },
+            "科技创新": {
+                'vocabulary': 'https://www.xdf.cn/ielts/vocabulary/technology',
+                'listening': 'https://www.ted.com/talks/steven_johnson_where_good_ideas_come_from',
+                'integrated': 'https://ieltsliz.com/technology-essay-topics/'
+            },
+            "未来科技": {
+                'vocabulary': 'https://www.englishclub.com/vocabulary/future-technology.htm',
+                'listening': 'https://www.youtube.com/watch?v=0boc8mJpPoA',  # Future Technology
+                'integrated': 'https://www.ieltsadvantage.com/future-technology-essay/'
+            },
+            
+            # 美食类主题
+            "饮食文化": {
+                'vocabulary': 'https://www.englishclub.com/vocabulary/food-culture.htm',
+                'listening': 'https://www.ted.com/talks/j_zamora_how_mexican_american_food_became_a_global_phenomenon',
+                'integrated': 'https://ieltsliz.com/food-essay-topics/'
+            },
+            "健康饮食": {
+                'vocabulary': 'https://www.xdf.cn/ielts/vocabulary/health',
+                'listening': 'https://www.youtube.com/watch?v=7kGnfXXIKZM',  # Healthy Eating
+                'integrated': 'https://www.ieltsadvantage.com/healthy-eating-essay/'
+            },
+            "美食旅游": {
+                'vocabulary': 'https://www.englishclub.com/vocabulary/travel-food.htm',
+                'listening': 'https://www.ted.com/talks/anthony_bourdain_on_travel_food_and_freedom',
+                'integrated': 'https://ieltsliz.com/travel-and-food-essay/'
+            },
+            "烹饪艺术": {
+                'vocabulary': 'https://www.englishclub.com/vocabulary/cooking.htm',
+                'listening': 'https://www.youtube.com/watch?v=G-_Gxl2D4_g',  # The Art of Cooking
+                'integrated': 'https://www.ieltsadvantage.com/cooking-essay/'
+            },
+            
+            # 旅行类主题
+            "旅游体验": {
+                'vocabulary': 'https://www.xdf.cn/ielts/vocabulary/travel',
+                'listening': 'https://www.ted.com/talks/pico_iyer_where_is_home',
+                'integrated': 'https://ieltsliz.com/travel-essay-topics/'
+            },
+            "文化遗产": {
+                'vocabulary': 'https://www.englishclub.com/vocabulary/cultural-heritage.htm',
+                'listening': 'https://www.youtube.com/watch?v=4DgicwGXWmM',  # Cultural Heritage
+                'integrated': 'https://www.ieltsadvantage.com/cultural-heritage-essay/'
+            },
+            "冒险旅行": {
+                'vocabulary': 'https://www.englishclub.com/vocabulary/adventure-travel.htm',
+                'listening': 'https://www.ted.com/talks/alastair_humphreys_around_the_world_by_bike',
+                'integrated': 'https://ieltsliz.com/adventure-travel-essay/'
+            },
+            "城市探索": {
+                'vocabulary': 'https://www.englishclub.com/vocabulary/city-exploration.htm',
+                'listening': 'https://www.youtube.com/watch?v=0fKBhvDjuy0',  # Urban Exploration
+                'integrated': 'https://www.ieltsadvantage.com/city-life-essay/'
+            },
+            
+            # 艺术类主题
+            "视觉艺术": {
+                'vocabulary': 'https://www.xdf.cn/ielts/vocabulary/art',
+                'listening': 'https://www.ted.com/talks/doris_salcedo_art_that_confronts_injustice_and_loss',
+                'integrated': 'https://ieltsliz.com/art-essay-topics/'
+            },
+            "设计思维": {
+                'vocabulary': 'https://www.englishclub.com/vocabulary/design-thinking.htm',
+                'listening': 'https://www.youtube.com/watch?v=_r0VX-aU_T8',  # Design Thinking
+                'integrated': 'https://www.ieltsadvantage.com/design-essay/'
+            },
+            "创意表达": {
+                'vocabulary': 'https://www.englishclub.com/vocabulary/creative-expression.htm',
+                'listening': 'https://www.ted.com/talks/elizabeth_gilbert_your_elusive_creative_genius',
+                'integrated': 'https://ieltsliz.com/creativity-essay-topics/'
+            },
+            "艺术史": {
+                'vocabulary': 'https://www.englishclub.com/vocabulary/art-history.htm',
+                'listening': 'https://www.youtube.com/watch?v=ibp_i7bekQU',  # Art History
+                'integrated': 'https://www.ieltsadvantage.com/art-history-essay/'
+            },
+            
+            # 雅思常考主题
             "教育学习": {
                 'vocabulary': 'https://www.xdf.cn/ielts/vocabulary/education',
                 'listening': 'https://www.ielts.org/en-us/prepare/free-ielts-practice-tests/listening',
                 'integrated': 'https://ieltsliz.com/ielts-education-topic/'
             },
-            "科技发展": {
-                'vocabulary': 'https://www.xdf.cn/ielts/vocabulary/technology',
-                'listening': 'https://www.cambridgeenglish.org/exams-and-tests/ielts/preparation/',
-                'integrated': 'https://www.ieltsadvantage.com/technology-essays/'
+            "环境保护": {
+                'vocabulary': 'https://www.xdf.cn/ielts/vocabulary/environment',
+                'listening': 'https://www.ted.com/talks/al_gore_the_case_for_optimism_on_climate_change',
+                'integrated': 'https://ieltsliz.com/environment-essay-topics/'
             },
-            "美食旅游": {
-                'vocabulary': 'https://www.xdf.cn/ielts/vocabulary/travel',
-                'listening': 'https://www.youtube.com/playlist?list=PLD6t6ckHsruYVv8Jm5nFxJX3q3ZQ5Z5Y5',
-                'integrated': 'https://ieltsliz.com/ielts-travel-tourism-topic/'
+            "健康生活": {
+                'vocabulary': 'https://www.xdf.cn/ielts/vocabulary/health',
+                'listening': 'https://www.youtube.com/watch?v=7kGnfXXIKZM',
+                'integrated': 'https://www.ieltsadvantage.com/healthy-lifestyle-essay/'
             },
-            "文化艺术": {
-                'vocabulary': 'https://www.xdf.cn/ielts/vocabulary/art',
-                'listening': 'https://www.ielts.org/en-us/prepare/free-ielts-practice-tests/listening',
-                'integrated': 'https://www.ieltsadvantage.com/culture-essays/'
+            "社会发展": {
+                'vocabulary': 'https://www.englishclub.com/vocabulary/social-development.htm',
+                'listening': 'https://www.ted.com/talks/hans_rosling_the_best_stats_you_ve_ever_seen',
+                'integrated': 'https://ieltsliz.com/social-development-essay/'
             }
+        }
+        
+        # 默认资源（如果主题没有专门资源）
+        default_resources = {
+            'vocabulary': 'https://www.xdf.cn/ielts/vocabulary/',
+            'listening': 'https://www.ielts.org/en-us/prepare/free-ielts-practice-tests/listening',
+            'integrated': 'https://ieltsliz.com/'
         }
         
         # 生成12周任务
