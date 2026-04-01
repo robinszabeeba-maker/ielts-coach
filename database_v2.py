@@ -130,6 +130,34 @@ class IELTSCoachDB:
         
         start_date = datetime.strptime(user_config['start_date'], '%Y-%m-%d')
         
+        # 新东方雅思学习资源库
+        xdf_resources = {
+            'listening': [
+                'https://www.xdf.cn/ielts/listening/',
+                'https://www.ielts.org/en-us/prepare/free-ielts-practice-tests/listening',
+                'https://www.cambridgeenglish.org/exams-and-tests/ielts/preparation/',
+                'https://www.youtube.com/playlist?list=PLD6t6ckHsruYVv8Jm5nFxJX3q3ZQ5Z5Y5'
+            ],
+            'reading': [
+                'https://www.xdf.cn/ielts/reading/',
+                'https://www.ielts.org/en-us/prepare/free-ielts-practice-tests/reading',
+                'https://ieltsliz.com/ielts-reading-lessons-information-and-tips/',
+                'https://www.ieltsadvantage.com/reading/'
+            ],
+            'writing': [
+                'https://www.xdf.cn/ielts/writing/',
+                'https://www.ielts.org/en-us/prepare/free-ielts-practice-tests/writing',
+                'https://ieltsliz.com/ielts-writing-task-2-lessons-and-tips/',
+                'https://www.ieltsadvantage.com/writing-task-2/'
+            ],
+            'speaking': [
+                'https://www.xdf.cn/ielts/speaking/',
+                'https://www.ielts.org/en-us/prepare/free-ielts-practice-tests/speaking',
+                'https://ieltsliz.com/ielts-speaking-free-lessons-essential-tips/',
+                'https://www.ieltsadvantage.com/speaking/'
+            ]
+        }
+        
         # 简单示例：生成12周的计划
         for week in range(weeks):
             for day in range(7):  # 每周7天
@@ -139,26 +167,26 @@ class IELTSCoachDB:
                 tasks = [
                     {
                         'type': 'listening',
-                        'desc': '听力练习',
-                        'url': 'https://example.com/listening',
+                        'desc': '听力练习 - 新东方雅思听力技巧',
+                        'url': xdf_resources['listening'][week % len(xdf_resources['listening'])],
                         'difficulty': min(week // 4 + 1, 5)  # 每4周难度+1
                     },
                     {
                         'type': 'reading', 
-                        'desc': '阅读练习',
-                        'url': 'https://example.com/reading',
+                        'desc': '阅读练习 - 新东方雅思阅读策略',
+                        'url': xdf_resources['reading'][week % len(xdf_resources['reading'])],
                         'difficulty': min(week // 4 + 1, 5)
                     },
                     {
                         'type': 'writing',
-                        'desc': '写作练习', 
-                        'url': 'https://example.com/writing',
+                        'desc': '写作练习 - 新东方雅思写作模板', 
+                        'url': xdf_resources['writing'][week % len(xdf_resources['writing'])],
                         'difficulty': min(week // 4 + 1, 5)
                     },
                     {
                         'type': 'speaking',
-                        'desc': '口语练习',
-                        'url': 'https://example.com/speaking',
+                        'desc': '口语练习 - 新东方雅思口语话题',
+                        'url': xdf_resources['speaking'][week % len(xdf_resources['speaking'])],
                         'difficulty': min(week // 4 + 1, 5)
                     }
                 ]
