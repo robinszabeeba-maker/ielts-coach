@@ -15,7 +15,7 @@ import os
 # 添加当前目录到路径
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from database_v4 import IELTSCoachDBV4
+from database_v4_fixed import IELTSCoachDBV4Fixed
 
 # 页面配置
 st.set_page_config(
@@ -29,7 +29,7 @@ st.set_page_config(
 @st.cache_resource
 def init_database():
     """初始化数据库（缓存资源）"""
-    return IELTSCoachDBV4()
+    return IELTSCoachDBV4Fixed()
 
 db = init_database()
 
