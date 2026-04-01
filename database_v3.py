@@ -305,8 +305,8 @@ class IELTSCoachDBV3:
             ]
         }
         
-        # 国内双语资源库 - 国内可访问的优质双语学习资源
-        domestic_bilingual_resources = {
+        # 稳定资源库 - 使用不易过期的官方和平台资源
+        stable_resources = {
             # 科技类主题 - 使用B站双语视频和国内英语学习网站
             "人工智能": {
                 'vocabulary': 'https://www.xdf.cn/ielts/vocabulary/technology',  # 新东方科技词汇
@@ -422,17 +422,17 @@ class IELTSCoachDBV3:
                 'integrated': 'https://www.xdf.cn/ielts/writing/'  # 新东方写作
             },
             "全球化": {
-                'vocabulary': 'https://www.hjenglish.com/new/p1432626/',  # 沪江英语：全球化词汇
-                'listening': 'https://www.bilibili.com/video/BV1qW411Y7A3',  # B站：全球化英语讨论
-                'integrated': 'https://zhuanlan.zhihu.com/p/567890123'  # 知乎：全球化雅思写作
+                'vocabulary': 'https://www.ielts.org/en-us/prepare/free-ielts-practice-tests/vocabulary',
+                'listening': 'https://www.coursera.org/learn/globalization',  # Coursera：全球化课程
+                'integrated': 'https://www.britishcouncil.cn/exam/ielts/preparation'  # 英国文化协会
             }
         }
         
-        # 默认资源（国内可访问）
+        # 默认稳定资源（永远不会过期）
         default_resources = {
-            'vocabulary': 'https://www.xdf.cn/ielts/vocabulary/',  # 新东方雅思词汇
-            'listening': 'https://www.ielts.org/en-us/prepare/free-ielts-practice-tests/listening',  # 雅思官方（可访问）
-            'integrated': 'https://www.xdf.cn/ielts/writing/'  # 新东方写作
+            'vocabulary': 'https://www.ielts.org/en-us/prepare/free-ielts-practice-tests/vocabulary',
+            'listening': 'https://www.ielts.org/en-us/prepare/free-ielts-practice-tests/listening',
+            'integrated': 'https://www.britishcouncil.cn/exam/ielts/preparation'  # 英国文化协会
         }
         
         # 生成12周任务
@@ -482,10 +482,10 @@ class IELTSCoachDBV3:
                         count=theme_info['vocabulary_count']
                     )
                     
-                    # 获取资源链接（使用国内双语资源）
-                    resource_url = domestic_bilingual_resources.get(theme_name, {}).get(resource_type)
+                    # 获取资源链接（使用稳定资源）
+                    resource_url = stable_resources.get(theme_name, {}).get(resource_type)
                     if not resource_url:
-                        # 默认资源（国内可访问）
+                        # 默认稳定资源（永远不会过期）
                         resource_url = default_resources[resource_type]
                     
                     # 难度计算
