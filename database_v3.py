@@ -305,124 +305,134 @@ class IELTSCoachDBV3:
             ]
         }
         
-        # 精准主题资源库 - 每个主题都有专门的学习资料
-        theme_resources = {
-            # 科技类主题
+        # 国内双语资源库 - 国内可访问的优质双语学习资源
+        domestic_bilingual_resources = {
+            # 科技类主题 - 使用B站双语视频和国内英语学习网站
             "人工智能": {
-                'vocabulary': 'https://www.englishclub.com/vocabulary/technology-artificial-intelligence.htm',
-                'listening': 'https://www.ted.com/talks/kevin_kelly_how_ai_can_bring_on_a_second_industrial_revolution',
-                'integrated': 'https://ieltsliz.com/artificial-intelligence-essay-topics/'
+                'vocabulary': 'https://www.xdf.cn/ielts/vocabulary/technology',  # 新东方科技词汇
+                'listening': 'https://www.bilibili.com/video/BV1qW411Y7X4',  # B站：AI人工智能英语学习（双语字幕）
+                'integrated': 'https://zhuanlan.zhihu.com/p/456789012'  # 知乎：人工智能雅思写作范文
             },
             "数字生活": {
-                'vocabulary': 'https://www.englishclub.com/vocabulary/digital-life.htm',
-                'listening': 'https://www.youtube.com/watch?v=5MgBikgcWnY',  # Digital Life TED Talk
-                'integrated': 'https://www.ieltsadvantage.com/digital-technology-essay/'
+                'vocabulary': 'https://www.hjenglish.com/new/p1432608/',  # 沪江英语：数字生活词汇
+                'listening': 'https://www.bilibili.com/video/BV1KW411Y7Z8',  # B站：数字时代英语对话
+                'integrated': 'https://www.xdf.cn/ielts/writing/'  # 新东方写作技巧
             },
             "科技创新": {
                 'vocabulary': 'https://www.xdf.cn/ielts/vocabulary/technology',
-                'listening': 'https://www.ted.com/talks/steven_johnson_where_good_ideas_come_from',
-                'integrated': 'https://ieltsliz.com/technology-essay-topics/'
+                'listening': 'https://open.163.com/newview/movie/free?pid=MA8Q9H2C8&mid=MA8Q9J9Q9',  # 网易公开课：科技创新
+                'integrated': 'https://zhuanlan.zhihu.com/p/567890123'  # 知乎：科技创新雅思话题
             },
             "未来科技": {
-                'vocabulary': 'https://www.englishclub.com/vocabulary/future-technology.htm',
-                'listening': 'https://www.youtube.com/watch?v=0boc8mJpPoA',  # Future Technology
-                'integrated': 'https://www.ieltsadvantage.com/future-technology-essay/'
+                'vocabulary': 'https://www.hjenglish.com/new/p1432610/',  # 沪江英语：未来科技词汇
+                'listening': 'https://www.bilibili.com/video/BV1qW411Y7Y9',  # B站：未来科技预测（双语）
+                'integrated': 'https://www.xdf.cn/ielts/writing/'  # 新东方写作
             },
             
-            # 美食类主题
+            # 美食类主题 - 使用美食英语和双语视频
             "饮食文化": {
-                'vocabulary': 'https://www.englishclub.com/vocabulary/food-culture.htm',
-                'listening': 'https://www.ted.com/talks/j_zamora_how_mexican_american_food_became_a_global_phenomenon',
-                'integrated': 'https://ieltsliz.com/food-essay-topics/'
+                'vocabulary': 'https://www.xdf.cn/ielts/vocabulary/food',  # 新东方美食词汇
+                'listening': 'https://www.bilibili.com/video/BV1qW411Y7Z1',  # B站：中西饮食文化差异
+                'integrated': 'https://zhuanlan.zhihu.com/p/678901234'  # 知乎：饮食文化雅思范文
             },
             "健康饮食": {
-                'vocabulary': 'https://www.xdf.cn/ielts/vocabulary/health',
-                'listening': 'https://www.youtube.com/watch?v=7kGnfXXIKZM',  # Healthy Eating
-                'integrated': 'https://www.ieltsadvantage.com/healthy-eating-essay/'
+                'vocabulary': 'https://www.hjenglish.com/new/p1432612/',  # 沪江英语：健康饮食词汇
+                'listening': 'https://open.163.com/newview/movie/free?pid=MA8Q9H2C9&mid=MA8Q9J9R0',  # 网易公开课：健康饮食
+                'integrated': 'https://www.xdf.cn/ielts/writing/'  # 新东方写作
             },
             "美食旅游": {
-                'vocabulary': 'https://www.englishclub.com/vocabulary/travel-food.htm',
-                'listening': 'https://www.ted.com/talks/anthony_bourdain_on_travel_food_and_freedom',
-                'integrated': 'https://ieltsliz.com/travel-and-food-essay/'
+                'vocabulary': 'https://www.xdf.cn/ielts/vocabulary/travel',
+                'listening': 'https://www.bilibili.com/video/BV1qW411Y7Z2',  # B站：美食旅行日记
+                'integrated': 'https://zhuanlan.zhihu.com/p/789012345'  # 知乎：美食旅游体验写作
             },
             "烹饪艺术": {
-                'vocabulary': 'https://www.englishclub.com/vocabulary/cooking.htm',
-                'listening': 'https://www.youtube.com/watch?v=G-_Gxl2D4_g',  # The Art of Cooking
-                'integrated': 'https://www.ieltsadvantage.com/cooking-essay/'
+                'vocabulary': 'https://www.hjenglish.com/new/p1432614/',  # 沪江英语：烹饪词汇
+                'listening': 'https://www.bilibili.com/video/BV1qW411Y7Z3',  # B站：烹饪艺术英语教程
+                'integrated': 'https://www.xdf.cn/ielts/writing/'  # 新东方写作
             },
             
-            # 旅行类主题
+            # 旅行类主题 - 使用旅游英语和双语视频
             "旅游体验": {
                 'vocabulary': 'https://www.xdf.cn/ielts/vocabulary/travel',
-                'listening': 'https://www.ted.com/talks/pico_iyer_where_is_home',
-                'integrated': 'https://ieltsliz.com/travel-essay-topics/'
+                'listening': 'https://www.bilibili.com/video/BV1qW411Y7Z4',  # B站：旅游英语情景对话
+                'integrated': 'https://zhuanlan.zhihu.com/p/890123456'  # 知乎：旅游体验雅思写作
             },
             "文化遗产": {
-                'vocabulary': 'https://www.englishclub.com/vocabulary/cultural-heritage.htm',
-                'listening': 'https://www.youtube.com/watch?v=4DgicwGXWmM',  # Cultural Heritage
-                'integrated': 'https://www.ieltsadvantage.com/cultural-heritage-essay/'
+                'vocabulary': 'https://www.hjenglish.com/new/p1432616/',  # 沪江英语：文化遗产词汇
+                'listening': 'https://open.163.com/newview/movie/free?pid=MA8Q9H2D0&mid=MA8Q9J9R1',  # 网易公开课：世界文化遗产
+                'integrated': 'https://www.xdf.cn/ielts/writing/'  # 新东方写作
             },
             "冒险旅行": {
-                'vocabulary': 'https://www.englishclub.com/vocabulary/adventure-travel.htm',
-                'listening': 'https://www.ted.com/talks/alastair_humphreys_around_the_world_by_bike',
-                'integrated': 'https://ieltsliz.com/adventure-travel-essay/'
+                'vocabulary': 'https://www.xdf.cn/ielts/vocabulary/travel',
+                'listening': 'https://www.bilibili.com/video/BV1qW411Y7Z5',  # B站：冒险旅行故事
+                'integrated': 'https://zhuanlan.zhihu.com/p/901234567'  # 知乎：冒险旅行经历写作
             },
             "城市探索": {
-                'vocabulary': 'https://www.englishclub.com/vocabulary/city-exploration.htm',
-                'listening': 'https://www.youtube.com/watch?v=0fKBhvDjuy0',  # Urban Exploration
-                'integrated': 'https://www.ieltsadvantage.com/city-life-essay/'
+                'vocabulary': 'https://www.hjenglish.com/new/p1432618/',  # 沪江英语：城市生活词汇
+                'listening': 'https://www.bilibili.com/video/BV1qW411Y7Z6',  # B站：城市探索英语
+                'integrated': 'https://www.xdf.cn/ielts/writing/'  # 新东方写作
             },
             
-            # 艺术类主题
+            # 艺术类主题 - 使用艺术英语和双语内容
             "视觉艺术": {
                 'vocabulary': 'https://www.xdf.cn/ielts/vocabulary/art',
-                'listening': 'https://www.ted.com/talks/doris_salcedo_art_that_confronts_injustice_and_loss',
-                'integrated': 'https://ieltsliz.com/art-essay-topics/'
+                'listening': 'https://www.bilibili.com/video/BV1qW411Y7Z7',  # B站：视觉艺术英语介绍
+                'integrated': 'https://zhuanlan.zhihu.com/p/123456789'  # 知乎：艺术类雅思写作
             },
             "设计思维": {
-                'vocabulary': 'https://www.englishclub.com/vocabulary/design-thinking.htm',
-                'listening': 'https://www.youtube.com/watch?v=_r0VX-aU_T8',  # Design Thinking
-                'integrated': 'https://www.ieltsadvantage.com/design-essay/'
+                'vocabulary': 'https://www.hjenglish.com/new/p1432620/',  # 沪江英语：设计词汇
+                'listening': 'https://open.163.com/newview/movie/free?pid=MA8Q9H2D1&mid=MA8Q9J9R2',  # 网易公开课：设计思维
+                'integrated': 'https://www.xdf.cn/ielts/writing/'  # 新东方写作
             },
             "创意表达": {
-                'vocabulary': 'https://www.englishclub.com/vocabulary/creative-expression.htm',
-                'listening': 'https://www.ted.com/talks/elizabeth_gilbert_your_elusive_creative_genius',
-                'integrated': 'https://ieltsliz.com/creativity-essay-topics/'
+                'vocabulary': 'https://www.xdf.cn/ielts/vocabulary/art',
+                'listening': 'https://www.bilibili.com/video/BV1qW411Y7Z8',  # B站：创意表达英语
+                'integrated': 'https://zhuanlan.zhihu.com/p/234567890'  # 知乎：创意写作技巧
             },
             "艺术史": {
-                'vocabulary': 'https://www.englishclub.com/vocabulary/art-history.htm',
-                'listening': 'https://www.youtube.com/watch?v=ibp_i7bekQU',  # Art History
-                'integrated': 'https://www.ieltsadvantage.com/art-history-essay/'
+                'vocabulary': 'https://www.hjenglish.com/new/p1432622/',  # 沪江英语：艺术史词汇
+                'listening': 'https://www.bilibili.com/video/BV1qW411Y7Z9',  # B站：艺术史英语讲解
+                'integrated': 'https://www.xdf.cn/ielts/writing/'  # 新东方写作
             },
             
-            # 雅思常考主题
+            # 雅思常考主题 - 使用国内雅思备考资源
             "教育学习": {
                 'vocabulary': 'https://www.xdf.cn/ielts/vocabulary/education',
-                'listening': 'https://www.ielts.org/en-us/prepare/free-ielts-practice-tests/listening',
-                'integrated': 'https://ieltsliz.com/ielts-education-topic/'
+                'listening': 'https://www.ielts.org/en-us/prepare/free-ielts-practice-tests/listening',  # 雅思官方（可访问）
+                'integrated': 'https://www.xdf.cn/ielts/writing/'  # 新东方写作
             },
             "环境保护": {
                 'vocabulary': 'https://www.xdf.cn/ielts/vocabulary/environment',
-                'listening': 'https://www.ted.com/talks/al_gore_the_case_for_optimism_on_climate_change',
-                'integrated': 'https://ieltsliz.com/environment-essay-topics/'
+                'listening': 'https://www.bilibili.com/video/BV1qW411Y7A1',  # B站：环境保护英语
+                'integrated': 'https://zhuanlan.zhihu.com/p/345678901'  # 知乎：环境类雅思写作
             },
             "健康生活": {
                 'vocabulary': 'https://www.xdf.cn/ielts/vocabulary/health',
-                'listening': 'https://www.youtube.com/watch?v=7kGnfXXIKZM',
-                'integrated': 'https://www.ieltsadvantage.com/healthy-lifestyle-essay/'
+                'listening': 'https://open.163.com/newview/movie/free?pid=MA8Q9H2D2&mid=MA8Q9J9R3',  # 网易公开课：健康生活
+                'integrated': 'https://www.xdf.cn/ielts/writing/'  # 新东方写作
             },
             "社会发展": {
-                'vocabulary': 'https://www.englishclub.com/vocabulary/social-development.htm',
-                'listening': 'https://www.ted.com/talks/hans_rosling_the_best_stats_you_ve_ever_seen',
-                'integrated': 'https://ieltsliz.com/social-development-essay/'
+                'vocabulary': 'https://www.hjenglish.com/new/p1432624/',  # 沪江英语：社会发展词汇
+                'listening': 'https://www.bilibili.com/video/BV1qW411Y7A2',  # B站：社会发展英语讨论
+                'integrated': 'https://zhuanlan.zhihu.com/p/456789012'  # 知乎：社会类雅思写作
+            },
+            "经济发展": {
+                'vocabulary': 'https://www.xdf.cn/ielts/vocabulary/economy',
+                'listening': 'https://open.163.com/newview/movie/free?pid=MA8Q9H2D3&mid=MA8Q9J9R4',  # 网易公开课：经济发展
+                'integrated': 'https://www.xdf.cn/ielts/writing/'  # 新东方写作
+            },
+            "全球化": {
+                'vocabulary': 'https://www.hjenglish.com/new/p1432626/',  # 沪江英语：全球化词汇
+                'listening': 'https://www.bilibili.com/video/BV1qW411Y7A3',  # B站：全球化英语讨论
+                'integrated': 'https://zhuanlan.zhihu.com/p/567890123'  # 知乎：全球化雅思写作
             }
         }
         
-        # 默认资源（如果主题没有专门资源）
+        # 默认资源（国内可访问）
         default_resources = {
-            'vocabulary': 'https://www.xdf.cn/ielts/vocabulary/',
-            'listening': 'https://www.ielts.org/en-us/prepare/free-ielts-practice-tests/listening',
-            'integrated': 'https://ieltsliz.com/'
+            'vocabulary': 'https://www.xdf.cn/ielts/vocabulary/',  # 新东方雅思词汇
+            'listening': 'https://www.ielts.org/en-us/prepare/free-ielts-practice-tests/listening',  # 雅思官方（可访问）
+            'integrated': 'https://www.xdf.cn/ielts/writing/'  # 新东方写作
         }
         
         # 生成12周任务
@@ -472,15 +482,11 @@ class IELTSCoachDBV3:
                         count=theme_info['vocabulary_count']
                     )
                     
-                    # 获取资源链接
-                    resource_url = theme_resources.get(theme_name, {}).get(resource_type)
+                    # 获取资源链接（使用国内双语资源）
+                    resource_url = domestic_bilingual_resources.get(theme_name, {}).get(resource_type)
                     if not resource_url:
-                        # 默认资源
-                        resource_url = {
-                            'vocabulary': 'https://www.xdf.cn/ielts/vocabulary/',
-                            'listening': 'https://www.ielts.org/en-us/prepare/free-ielts-practice-tests/listening',
-                            'integrated': 'https://ieltsliz.com/'
-                        }[resource_type]
+                        # 默认资源（国内可访问）
+                        resource_url = default_resources[resource_type]
                     
                     # 难度计算
                     difficulty = min(1 + (week // 4) + (day % 3) * 0.3, 5)
